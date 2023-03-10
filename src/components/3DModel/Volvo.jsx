@@ -18,16 +18,38 @@ export function Volvo(props) {
   const scroll = useScroll();
   const volvo = useRef();
   const tl = useRef();
-  const wheel = useRef();
+  const wheel1 = useRef();
+  const wheel2 = useRef();
+  const wheel3 = useRef();
+  const wheel4 = useRef();
+  const rim1 = useRef();
+  const rim2 = useRef();
+  const rim3 = useRef();
+  const rim4 = useRef();
 
   useFrame((state, delta) => {
-    console.log(volvo.current);
-    console.log("Offset: ", scroll.offset);
-    console.log("TL Duration: ", tl.current.duration());
+    // console.log(volvo.current);
+    // console.log("Offset: ", scroll.offset);
+    // console.log("TL Duration: ", tl.current.duration());
 
     // [override] Jumps to a specific time (or label) without affecting 
     // whether or not the instance is paused or reversed.
     tl.current.seek(scroll.offset * tl.current.duration())
+
+    if (scroll.range(3 / 4, 4 / 4)) {
+      // Trigger wheels
+      const speed = 0.3
+      // wheel1.current.rotation.x += speed
+      wheel2.current.rotation.x += speed
+      // wheel3.current.rotation.x += speed
+      wheel4.current.rotation.x += speed
+      // rim1.current.rotation.x += speed
+      rim2.current.rotation.x += speed
+      // rim3.current.rotation.x += speed
+      rim4.current.rotation.x += speed
+
+
+    }
   })
 
   useLayoutEffect(() => {
@@ -212,22 +234,29 @@ export function Volvo(props) {
           <mesh geometry={nodes.Foglight_Reflector_Chrome_0.geometry} material={materials.Chrome} />
           <mesh geometry={nodes.Foglight_Reflector_Metal_Rough_0.geometry} material={materials.Metal_Rough} />
         </group>
-        <mesh geometry={nodes.Rim_Bolt_FL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.67, 38.06, 161.03]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={1.17} />
-        <mesh geometry={nodes.Rim_Bolt_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, 161.14]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={1.16} />
-        <mesh geometry={nodes.Rim_Bolt_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.64, 38.06, -133.05]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={1.16} />
-        <mesh geometry={nodes.Rim_Bolts_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, -133.43]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={1.16} />
-        <mesh geometry={nodes.Rim_Emblem_FL_Rims001_0.geometry} material={materials['Rims.001']} position={[90.68, 38.18, 160.8]} rotation={[-Math.PI / 2, 0, 1.58]} scale={29.37} />
-        <mesh geometry={nodes.Rim_Emblem_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-90.15, 38.18, 161.37]} rotation={[-Math.PI / 2, 0, -1.56]} scale={29.37} />
-        <mesh geometry={nodes.Rim_Emblem_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[90.71, 38.18, -133.27]} rotation={[-Math.PI / 2, 0, 1.58]} scale={28.81} />
-        <mesh geometry={nodes.Rim_Emblem_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-90.22, 38.18, -133.21]} rotation={[-Math.PI / 2, 0, -1.56]} scale={29.37} />
-        <mesh geometry={nodes.Rim_FL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.67, 38.06, 161.03]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={28.32} />
-        <mesh geometry={nodes.Rim_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, 161.14]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={27.82} />
-        <mesh geometry={nodes.Rim_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.64, 38.06, -133.05]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={27.78} />
-        <mesh geometry={nodes.Rim_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, -133.43]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={27.7} />
-        <mesh geometry={nodes.Tire_FL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 38.06, 161.03]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
-        <mesh geometry={nodes.Tire_FR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, 161.11]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
-        <mesh geometry={nodes.Tire_RL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
-        <mesh geometry={nodes.Tire_RR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
+        {/* wheels */}
+
+          <mesh geometry={nodes.Rim_Bolt_FL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.67, 38.06, 161.03]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={1.17} />
+          <mesh geometry={nodes.Rim_Emblem_FL_Rims001_0.geometry} material={materials['Rims.001']} position={[90.68, 38.18, 160.8]} rotation={[-Math.PI / 2, 0, 1.58]} scale={29.37} />
+          <mesh geometry={nodes.Rim_FL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.67, 38.06, 161.03]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={28.32} ref={rim1} />
+          <mesh geometry={nodes.Tire_FL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 38.06, 161.03]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} ref={wheel1}/>
+
+
+          <mesh geometry={nodes.Rim_Bolt_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, 161.14]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={1.16} />
+          <mesh geometry={nodes.Rim_Emblem_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-90.15, 38.18, 161.37]} rotation={[-Math.PI / 2, 0, -1.56]} scale={29.37} />
+          <mesh geometry={nodes.Rim_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, 161.14]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={27.82} ref={rim2}/>
+          <mesh geometry={nodes.Tire_FR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, 161.11]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} ref={wheel2}/>
+
+          <mesh geometry={nodes.Rim_Bolt_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.64, 38.06, -133.05]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={1.16} />
+          <mesh geometry={nodes.Rim_Emblem_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[90.71, 38.18, -133.27]} rotation={[-Math.PI / 2, 0, 1.58]} scale={28.81} />
+          <mesh geometry={nodes.Rim_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.64, 38.06, -133.05]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={27.78} />
+          <mesh geometry={nodes.Tire_RL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} ref={wheel3}/>
+
+          <mesh geometry={nodes.Rim_Bolts_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, -133.43]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={1.16} />
+          <mesh geometry={nodes.Rim_Emblem_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-90.22, 38.18, -133.21]} rotation={[-Math.PI / 2, 0, -1.56]} scale={29.37} />
+          <mesh geometry={nodes.Rim_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, -133.43]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={27.7} ref={rim4}/>
+          <mesh geometry={nodes.Tire_RR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} ref={wheel4}/>
+
         <mesh geometry={nodes.Bumper_Rear_Car_Paint_0.geometry} material={materials.Car_Paint} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
         <mesh geometry={nodes.Fender_Front_Car_Paint_0.geometry} material={materials.Car_Paint} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
         <mesh geometry={nodes.Hood_Car_Paint_0.geometry} material={materials.Car_Paint} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
