@@ -48,7 +48,7 @@ const LightConf = () => {
 				ref={pl2}
 				position={[0, 90, 0]}
 				angle={1.3}
-				intensity={4}
+				intensity={2}
 				penumbra={1}
 				castShadow
 			/>

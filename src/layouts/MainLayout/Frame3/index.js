@@ -24,19 +24,19 @@ const Frame3 = () => {
 	return (
 		<div className="top-[200vh] h-screen w-screen absolute">
 			<div className="w-screen h-screen grid place-items-center">
-				<div className="lg:w-[50%] flex justify-center gap-4">
+				<div className="lg:w-[50%] w-[90%] h-fit flex-wrap flex justify-center gap-2 lg:gap-4">
 					{data.map((card, index) => (
 						<div
 							key={card.title + index}
-							className="flex-1 h-80 border-2 border-solid border-white font-poppins p-4 bg-[rgba(0,0,0,0.5)] relative
+							className="flex-1 basis-full h-fit lg:h-80 border-2 border-solid border-white font-poppins p-4 bg-[rgba(0,0,0,0.5)] relative
                   before:contents-[''] before:h-1 before:w-[50%] before:absolute before:bottom-3 before:right-2 before:bg-white
                 "
 							ref={card}
 						>
-							<h2 className="text-lg text-blue-500 font-semibold">
+							<h2 className="lg:text-lg text-blue-500 font-semibold mb-4 lg:mb-0">
 								{card.title}
 							</h2>
-							<p className="text-lg text-gray-200">
+							<p className="lg:text-lg text-gray-200 hidden lg:block">
 								{
 									card.description
 								}
