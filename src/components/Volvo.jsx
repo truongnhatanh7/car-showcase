@@ -36,12 +36,8 @@ export function Volvo(props) {
     .to(volvo.current.rotation, { y: -1 }, 0)
     .to(volvo.current.position, { x: 2, z: 2 }, 0)
 
-    .to(volvo.current.rotation, { x: 1.4, y: 0 }, 1)
-    .to(volvo.current.position, { x: 0, z: 2 }, 1)
-
-
-
-    
+    .to(volvo.current.rotation, { x: 1.5, y: 0 }, 1)
+    .to(volvo.current.position, { x: 0, z: -1 }, 1)
     
   }, [])
 
