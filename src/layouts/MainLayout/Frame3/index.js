@@ -28,7 +28,7 @@ const Frame3 = () => {
 					{data.map((card, index) => (
 						<div
 							key={card.title + index}
-							className="flex-1 basis-full h-fit lg:h-80 border-2 border-solid border-white font-poppins p-4 bg-[rgba(0,0,0,0.5)] relative
+							className="flex-1 basis-full lg:basis-0 h-fit lg:h-80 border-2 border-solid border-white font-poppins p-4 bg-[rgba(0,0,0,0.5)] relative
                   before:contents-[''] before:h-1 before:w-[50%] before:absolute before:bottom-3 before:right-2 before:bg-white
                 "
 							ref={card}
