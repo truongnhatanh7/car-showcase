@@ -1,13 +1,15 @@
-import { Html, useProgress } from '@react-three/drei'
+import { Html, useProgress } from "@react-three/drei";
 
 function Loader() {
-  const { progress } = useProgress()
-  return <Html center>
-      <h1 className='text-3xl text-white'>
-
-    {progress} % loaded
+	const { progress } = useProgress();
+	return (
+		<Html center>
+			<span class="loader"></span>
+      <h1 className="text-xl text-center text-white font-poppins">
+        {progress.toFixed(2) - 0.1 + "%"}
       </h1>
-        </Html>
+		</Html>
+	);
 }
 
 export default Loader;
