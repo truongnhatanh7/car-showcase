@@ -58,7 +58,7 @@ function App() {
 				/>
 			</EffectComposer>
 
-			<ScrollControls pages={4} damping={0.1}>
+			<ScrollControls pages={5} damping={0.1}>
 				<Volvo position={[0, -1, 0]} />
 
 				<Sparkles

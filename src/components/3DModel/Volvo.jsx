@@ -65,6 +65,9 @@ export function Volvo(props) {
     .to(volvo.current.position, { x: 0, z: 1 }, 2)
     .to(volvo.current.rotation, { x: 0, y: 1.6, z: 0 }, 2)
 
+    .to(volvo.current.position, { x: 7, z: 5 }, 3)
+    .to(volvo.current.rotation, { x: 0, y: 0.5, z: 0 }, 3)
+
     
 
 

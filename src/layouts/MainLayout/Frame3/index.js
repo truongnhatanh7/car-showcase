@@ -22,7 +22,7 @@ const data = [
 const Frame3 = () => {
 
 	return (
-		<div className="top-[200vh] h-screen w-screen absolute border border-white">
+		<div className="top-[200vh] h-screen w-screen absolute">
 			<div className="w-screen h-screen grid place-items-center">
 				<div className="lg:w-[50%] flex justify-center gap-4">
 					{data.map((card, index) => (
@@ -33,10 +33,10 @@ const Frame3 = () => {
                 "
 							ref={card}
 						>
-							<h2 className="text-lg text-white font-semibold">
+							<h2 className="text-lg text-blue-500 font-semibold">
 								{card.title}
 							</h2>
-							<p className="text-lg text-gray-400">
+							<p className="text-lg text-gray-200">
 								{
 									card.description
 								}
