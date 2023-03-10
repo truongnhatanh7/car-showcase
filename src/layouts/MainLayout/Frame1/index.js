@@ -10,7 +10,7 @@ const Frame1 = () => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: {
         duration: 4.6,
-        ease: "power1.in"
+        ease: "power4.in"
       } })
 
       tl.from(heading.current, {
@@ -36,8 +36,8 @@ const Frame1 = () => {
         </h1>
 			</div>
 
-      <div className="top-[86vh] left-1/2 -translate-x-1/2 absolute px-3 py-2 border-2 border-solid border-white opacity-90" ref={scrollCTA}>
-				<h1 className="text-lg text-white text-center font-poppins uppercase" >
+      <div className="top-[86vh] left-1/2 -translate-x-1/2 absolute lg:px-3 lg:py-2 p-2 w-[80%] lg:w-auto border-2 border-solid border-white opacity-90" ref={scrollCTA}>
+				<h1 className="text-base lg:text-lg text-white text-center font-poppins uppercase" >
 					scroll down to explore
         </h1>
 			</div>

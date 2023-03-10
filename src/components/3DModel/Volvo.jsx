@@ -18,6 +18,7 @@ export function Volvo(props) {
   const scroll = useScroll();
   const volvo = useRef();
   const tl = useRef();
+  const wheel = useRef();
 
   useFrame((state, delta) => {
     console.log(volvo.current);
@@ -38,12 +39,21 @@ export function Volvo(props) {
 
     .to(volvo.current.rotation, { x: 1.5, y: 0 }, 1)
     .to(volvo.current.position, { x: 0, z: -1 }, 1)
+
+    .to(volvo.current.position, { x: 0, z: 1 }, 2)
+    .to(volvo.current.rotation, { x: 0, y: 1.6, z: 0 }, 2)
+
+    
+
+
     
   }, [])
 
   return (
     <group {...props} dispose={null} ref={volvo}>
       <group scale={0.01}>
+
+
         <group position={[78.82, 37.96, 161.37]} rotation={[-2.11, 1.56, -0.42]} scale={19.59}>
           <mesh geometry={nodes.Brake_Disc_FL_chrome001_0.geometry} material={materials['chrome.001']} />
           <mesh geometry={nodes.Brake_Disc_FL_null002_0.geometry} material={materials['null.002']} />
@@ -59,7 +69,7 @@ export function Volvo(props) {
           <mesh geometry={nodes.Brake_Disc_RL_null002_0.geometry} material={materials['null.002']} />
           <mesh geometry={nodes.Brake_Disc_RL_disc001_0.geometry} material={materials['disc.001']} />
         </group>
-        <group position={[-80.04, 37.96, -133.77]} rotation={[-1.03, -1.56, 2.72]} scale={19.59}>
+        <group position={[-80.04, 37.96, -133.77]} rotation={[-1.03, -1.56, 2.72]} scale={19.59} >
           <mesh geometry={nodes.Brake_Disc_RR_chrome001_0.geometry} material={materials['chrome.001']} />
           <mesh geometry={nodes.Brake_Disc_RR_null002_0.geometry} material={materials['null.002']} />
           <mesh geometry={nodes.Brake_Disc_RR_disc001_0.geometry} material={materials['disc.001']} />
@@ -84,7 +94,7 @@ export function Volvo(props) {
           <mesh geometry={nodes.Caliper_RR_Metal_Rough001_0.geometry} material={materials['Metal_Rough.001']} />
           <mesh geometry={nodes.Caliper_RR_Plastic001_0.geometry} material={materials['Plastic.001']} />
         </group>
-        <group position={[80.39, 37.98, 161.31]} rotation={[2.14, 0, 1.56]} scale={19.93}>
+        <group position={[80.39, 37.98, 161.31]} rotation={[2.14, 0, 1.56]} scale={19.93} >
           <mesh geometry={nodes.Wheelhub_FL_metal_rough002_0.geometry} material={materials['metal_rough.002']} />
           <mesh geometry={nodes.Wheelhub_FL_chrome001_0.geometry} material={materials['chrome.001']} />
         </group>
@@ -99,6 +109,7 @@ export function Volvo(props) {
         <group position={[-81.61, 37.98, -133.72]} rotation={[1, 0, -1.58]} scale={19.93}>
           <mesh geometry={nodes.Wheelhub_RR_metal_rough002_0.geometry} material={materials['metal_rough.002']} />
           <mesh geometry={nodes.Wheelhub_RR_chrome001_0.geometry} material={materials['chrome.001']} />
+
         </group>
         <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
           <mesh geometry={nodes.Body_Frame_Car_Paint_0.geometry} material={materials.Car_Paint} />
@@ -213,10 +224,10 @@ export function Volvo(props) {
         <mesh geometry={nodes.Rim_FR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, 161.14]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={27.82} />
         <mesh geometry={nodes.Rim_RL_Rims001_0.geometry} material={materials['Rims.001']} position={[93.64, 38.06, -133.05]} rotation={[-Math.PI / 2, Math.PI / 2, 0]} scale={27.78} />
         <mesh geometry={nodes.Rim_RR_Rims001_0.geometry} material={materials['Rims.001']} position={[-93.04, 38.06, -133.43]} rotation={[Math.PI / 2, -Math.PI / 2, 0]} scale={27.7} />
-        <mesh geometry={nodes.Tire_FL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 38.06, 161.03]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} />
-        <mesh geometry={nodes.Tire_FR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, 161.11]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} />
-        <mesh geometry={nodes.Tire_RL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} />
-        <mesh geometry={nodes.Tire_RR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} />
+        <mesh geometry={nodes.Tire_FL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 38.06, 161.03]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
+        <mesh geometry={nodes.Tire_FR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, 161.11]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
+        <mesh geometry={nodes.Tire_RL_Tire001_0.geometry} material={materials['Tire.001']} position={[82.16, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
+        <mesh geometry={nodes.Tire_RR_Tire001_0.geometry} material={materials['Tire.001']} position={[-81.81, 37.75, -132.95]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.78, 8.85, 8.85]} ref={wheel}/>
         <mesh geometry={nodes.Bumper_Rear_Car_Paint_0.geometry} material={materials.Car_Paint} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
         <mesh geometry={nodes.Fender_Front_Car_Paint_0.geometry} material={materials.Car_Paint} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
         <mesh geometry={nodes.Hood_Car_Paint_0.geometry} material={materials.Car_Paint} rotation={[-Math.PI / 2, 0, 0]} scale={100} />

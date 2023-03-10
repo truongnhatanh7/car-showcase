@@ -44,13 +44,12 @@ const LightConf = () => {
 				castShadow
 			/> */}
 			<pointLight
-				color={"#eff0da"}
+				color={"white"}
 				ref={pl2}
 				position={[0, 90, 0]}
 				angle={1.3}
-				intensity={1}
+				intensity={4}
 				penumbra={1}
-				shadowBias={-0.00001}
 				castShadow
 			/>
 		</>
